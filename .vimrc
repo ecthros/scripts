@@ -67,3 +67,5 @@ nnoremap <CR> :noh<CR><CR>
 
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
+
+set mouse=
