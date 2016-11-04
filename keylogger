@@ -1,0 +1,8 @@
+import subprocess
+
+asdf = subprocess.Popen(["xinput | grep keyboard | cut -d \"=\" -f 2 | awk '{print $1}'"], stdout=subprocess.PIPE, shell=True)
+a = asdf.stdout.readlines()
+b = [word.rstrip('\n') for word in a]
+i = 0
+for ele in b:
+        proc = subprocess.Popen(["xinput test " + ele + " >> " + str(i) + ".txt"], stdout=subprocess.PIPE, shell=True)
