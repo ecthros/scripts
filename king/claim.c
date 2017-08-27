@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
 	}
 	printf("Attempting to claim for team %s to scorebot at IP %s\n", argv[1], argv[2]);
 	char cmdbuf[256];
-	snprintf(cmdbuf, sizeof(cmdbuf), "ip=`hostname --ip-addresses`; curl --data \"team=%s,ip=$ip\" %s:8001", argv[1], argv[2]);
+	snprintf(cmdbuf, sizeof(cmdbuf), "ip=`ip addr | grep inet[^6] | grep -v \"127\\..*\" | head -1 | grep -o \"10\\.[0-9]\\+\\.[0-9]\\+\\.[0-9]\\+\" | head -1`; curl --data \"team=%s,ip=$ip\" %s:8001", argv[1], argv[2]);
 	system(cmdbuf);
 
 }
